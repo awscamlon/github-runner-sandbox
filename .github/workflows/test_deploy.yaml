@@ -32,10 +32,9 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::211125372859:role/github-instance-rEc2InstanceRole-2g653aRQFQSy
-          role-session-name: GitHubActions-${{ github.run_number }}
           aws-region: ap-southeast-1
           role-skip-session-tagging: true
+          # Remove the role-to-assume line since we're using the instance role directly
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
