@@ -29,13 +29,20 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
+      # - name: Configure AWS credentials
+      #   uses: aws-actions/configure-aws-credentials@v4
+      #   with:
+      #     aws-region: ap-southeast-1
+      #     role-skip-session-tagging: true
+      #     # Remove the role-to-assume line since we're using the instance role directly
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
+          role-to-assume: arn:aws:iam::619071320674:role/GithubRunner-EC2Role-DataProcessing-NonProd
           aws-region: ap-southeast-1
           role-skip-session-tagging: true
-          # Remove the role-to-assume line since we're using the instance role directly
-
+          
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
