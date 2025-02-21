@@ -32,7 +32,7 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: arn:aws:iam::211125372859:role/Alapaap-EC2-GithubRunner
+          role-to-assume: arn:aws:iam::211125372859:role/github-instance-rEc2InstanceRole-2g653aRQFQSy
           role-session-name: GitHubActions-${{ github.run_number }}
           aws-region: ap-southeast-1
           
