@@ -1,1 +1,20 @@
+name: Vadidate NonProd Merge
 
+on:
+  # Trigger this workflow when the pull request targets the NonProd branch.
+  pull_request_target: # Runs in the context of the base repository (the repository where the pull request is being merged into).
+    branches: [nonprod]
+    
+jobs:
+  check-source-branch:
+    runs-on: self-hosted
+    steps:
+      - name: Check if PR is from a branch other than PROD, and PROD
+        env:
+          # HEAD_REF: This environment variable contains the name of the source branch (the branch from which the pull request is created).
+          HEAD_REF: ${{ github.head_ref }} 
+        run: |
+          if [ "$HEAD_REF" = "pet" ] || [ "$HEAD_REF" = "prod" ]; then
+            echo "PRs to NonProd must come from a branch that is not PET or PROD"
+            exit 1
+          fi
