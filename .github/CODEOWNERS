@@ -1,0 +1,7 @@
+# Require approval for PROD from:
+prod
+prod @awscamlon
+
+# Require approval for PET from:
+pet
+pet @awscamlon
