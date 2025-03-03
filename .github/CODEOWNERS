@@ -5,3 +5,7 @@ prod @awscamlon
 # Require approval for PET from:
 pet
 pet @awscamlon
+
+# Require approval for NonProd from:
+nonprod
+nonprod @awscamlon
